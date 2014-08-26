@@ -1,5 +1,6 @@
 FROM        google/python:latest
 WORKDIR     /shadowsocks
+RUN         apt-get install --no-install-recommends -y -q swig
 RUN         virtualenv /env
 ADD         config.json /shadowsocks/config.json
 ADD         requirements.txt /shadowsocks/requirements.txt
@@ -7,4 +8,4 @@ RUN         /env/bin/pip install -r requirements.txt
 EXPOSE      10086
 
 CMD         []
-CMD         ["/env/bin/ssserver", "-c", "/shadowsocks/config.json"]
+ENTRYPOINT  ["/env/bin/ssserver", "-c", "/shadowsocks/config.json"]
