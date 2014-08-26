@@ -1,7 +1,7 @@
 FROM        google/python:latest
 RUN         virtualenv /env
-ADD         config.json .
-ADD         requirements.txt .
+COPY        config.json .
+COPY        requirements.txt .
 RUN         /env/bin/pip install requirements.txt
 EXPOSE      10010
 
