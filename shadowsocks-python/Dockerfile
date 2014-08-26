@@ -1,5 +1,6 @@
 FROM        google/python:latest
 WORKDIR     /shadowsocks
+RUN         apt-get install python-m2crypto
 RUN         virtualenv /env
 ADD         config.json /shadowsocks/config.json
 ADD         requirements.txt /shadowsocks/requirements.txt
