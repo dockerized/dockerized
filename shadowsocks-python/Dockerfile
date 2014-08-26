@@ -7,4 +7,4 @@ RUN         /env/bin/pip install -r requirements.txt
 EXPOSE      10086
 
 CMD         []
-ENTRYPOINT  ["/env/bin/ssserver", "-c", "/shadowsocks/config.json"]
+CMD         ["/env/bin/ssserver", "-c", "/shadowsocks/config.json"]
