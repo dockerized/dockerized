@@ -1,8 +1,10 @@
 FROM        google/python:latest
+WORKDIR     /shadowsocks
 RUN         virtualenv /env
-COPY        config.json .
-COPY        requirements.txt .
+ADD         config.json /shadowsocks/config.json
+ADD         requirements.txt /shadowsocks/requirements.txt
 RUN         /env/bin/pip install requirements.txt
 EXPOSE      10010
 
-CMD         ["/env/bin/ssserver", "-c", "config.json"]
+CMD         []
+ENTRYPOINT  ["/env/bin/ssserver", "-c", "/shadowsocks/config.json"]
