@@ -3,6 +3,6 @@
     "password":"299792458",
     "method": "aes-256-cfb",
     "fast_open": true,
-    "workers":10,
+    "workers":2,
     "timeout":600
 }
