@@ -1,5 +1,5 @@
 FROM        google/python:latest
-RUN         RUN virtualenv /env
+RUN         virtualenv /env
 ADD         config.json .
 ADD         requirements.txt .
 RUN         /env/bin/pip install requirements.txt
