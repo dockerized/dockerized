@@ -12,6 +12,6 @@
 ### Build && Run
 
 ```bash
-docker build -t xiocode/shadowsocks .
+docker build -t yourname/shadowsocks .
 docker run -p 10010:10010 -d yourname/shadowsocks
 ```
