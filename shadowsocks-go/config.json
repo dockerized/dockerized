@@ -1,6 +1,6 @@
 {
     "server_port":10010,
-    "password":"xxxxxxxxx",
+    "password":"299792458",
     "method": "aes-256-cfb",
     "timeout":600
 }
