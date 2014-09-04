@@ -1,0 +1,14 @@
+cow.http:
+    image: xiocode/cow
+    ports:
+        - "10000:10000"
+
+shadowsocks.go:
+    image: xiocode/shadowsocks-go
+    ports:
+        - "10010:10010"
+
+shadowsocks.python:
+    image: xiocode/shadowsocks-python
+    ports:
+        - "10086:10086"
