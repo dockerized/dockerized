@@ -8,7 +8,7 @@ WORKDIR     /home/developer
 # CONFIG
 ADD         vim .vim
 ADD         vimrc .vimrc
-ADD         vim.bundles .vim.bundles
+ADD         vimrc.bundles .vimrc.bundles
 ADD         gitconfig /home/developer/.gitconfig
 
 # Golang
