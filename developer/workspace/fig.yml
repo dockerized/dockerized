@@ -1,5 +1,0 @@
-base:
-    image: google/golang:latest
-
-db:
-    image:
