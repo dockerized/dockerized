@@ -6,8 +6,8 @@ RUN apt-get update && apt-get install -y wget git curl zip unzip python python-d
 RUN apt-get update
 RUN add-apt-repository -y ppa:webupd8team/java
 RUN apt-get update
-RUN apt-get install oracle-java7-installer -y
-RUN apt-get install oracle-java7-set-default -y
+RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+RUN apt-get install -y oracle-java7-installer
 
 ENV JAVA_HOME /usr/bin/java
 ENV PATH $JAVA_HOME:$PATH
