@@ -42,14 +42,12 @@ RUN curl -L http://mirrors.jenkins-ci.org/war-stable/1.565.3/jenkins.war -o /usr
 ENV JENKINS_UC https://updates.jenkins-ci.org
 RUN chown -R jenkins "$JENKINS_HOME" /usr/share/jenkins/ref
 
-
 # Android
 WORKDIR /usr/local/
 RUN curl -O https://dl.google.com/android/android-sdk_r23.0.2-linux.tgz
 RUN tar xzf android-sdk_r23.0.2-linux.tgz
-RUN rm -f android-sdk_r23.0.2-linux.tgz
 
-ENV ANDROID_HOME /usr/local//android-sdk-linux
+ENV ANDROID_HOME /usr/local/android-sdk-linux
 ENV PATH $PATH:$ANDROID_HOME/tools
 ENV PATH $PATH:$ANDROID_HOME/platform-tools
 
@@ -68,8 +66,10 @@ RUN wget -nv http://ftp.tsukuba.wide.ad.jp/software/apache/maven/maven-3/3.1.1/b
 # Install Gradle
 RUN wget -nv https://downloads.gradle.org/distributions/gradle-2.2.1-bin.zip && unzip -oq gradle-2.2.1-bin.zip
 
-RUN rm -rf /usr/local/apache-maven-3.1.1-bin.tar.gz
-RUN rm -rf /usr/local/gradle-1.9-all.zip
+# Cleanup
+RUN rm -rf android-sdk_r23.0.2-linux.tgz
+RUN rm -rf apache-maven-3.1.1-bin.tar.gz
+RUN rm -rf gradle-1.9-all.zip
 
 # Environment variables
 ENV MAVEN_HOME /usr/local/apache-maven-3.1.1
