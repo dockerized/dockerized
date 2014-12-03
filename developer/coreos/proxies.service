@@ -1,0 +1,21 @@
+[Unit]
+Description=Proxies Service
+After=docker.service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill shadowsocks_python
+ExecStartPre=-/usr/bin/docker kill shadowsocks_go
+ExecStartPre=-/usr/bin/docker kill cow
+ExecStartPre=-/usr/bin/docker rm shadowsocks_python
+ExecStartPre=-/usr/bin/docker rm shadowsocks_go
+ExecStartPre=-/usr/bin/docker rm cow
+ExecStartPre=/usr/bin/docker pull xiocode/shadowsocks-go
+ExecStartPre=/usr/bin/docker pull xiocode/shadowsocks-python
+ExecStartPre=/usr/bin/docker pull xiocode/cow
+ExecStartPre=/usr/bin/docker run --name shadowsocks_python -p 10086:10086 -d xiocode/shadowsocks-python
+ExecStartPre=/usr/bin/docker run --name cow -p 10000:10000 -d xiocode/cow
+ExecStart=/usr/bin/docker run --name shadowsocks_go -p 10010:10010 xiocode/shadowsocks-go
+ExecStopPost=-/usr/bin/docker stop shadowsocks_python
+ExecStopPost=-/usr/bin/docker stop shadowsocks_go
+ExecStopPost=-/usr/bin/docker stop cow
