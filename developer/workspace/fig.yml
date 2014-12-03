@@ -1,0 +1,10 @@
+data:
+    image: busybox
+    volumes:
+        - /Users/shao/Developer/docker/database:/var/lib/mysql
+db:
+    image: tutum/mysql:5.6
+    volumes_from:
+        - data
+    ports:
+        - "3306:3306"
