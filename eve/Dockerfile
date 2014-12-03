@@ -1,4 +1,5 @@
 FROM phusion/baseimage:latest
+MAINTAINER Tony.Shao "xiocode@gmail.com"
 
 # Init
 ENV HOME /root
