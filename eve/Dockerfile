@@ -1,10 +1,10 @@
 FROM ubuntu:14.04
 
-RUN apt-get update && apt-get install -y wget git curl zip unzip python-software-properties
+RUN apt-get update && apt-get install -y wget git curl zip unzip python python-dev python-software-properties software-properties-common
 
 # JAVA
 RUN apt-get update
-RUN add-apt-repository ppa:webupd8team/java -y
+RUN add-apt-repository -y ppa:webupd8team/java
 RUN apt-get update
 RUN apt-get install oracle-java7-installer -y
 RUN apt-get install oracle-java7-set-default -y
@@ -64,7 +64,7 @@ RUN echo y | android update sdk --filter sys-img-x86-android-21 --no-ui -a
 RUN wget -nv http://ftp.tsukuba.wide.ad.jp/software/apache/maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.tar.gz && tar xf apache-maven-3.1.1-bin.tar.gz
 
 # Install Gradle
-RUN wget -nv https://downloads.gradle.org/distributions/gradle-2.2.1-bin.zip && unzip -oq gradle-2.2.1-bin.zip
+RUN wget -nv https://downloads.gradle.org/distributions/gradle-2.2.1-all.zip && unzip -oq gradle-2.2.1-all.zip
 
 # Cleanup
 RUN rm -rf android-sdk_r23.0.2-linux.tgz
