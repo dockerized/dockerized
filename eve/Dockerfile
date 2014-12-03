@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM phusion/baseimage:latest
 
 RUN apt-get update && apt-get install -y wget git curl zip unzip python python-dev python-software-properties software-properties-common
 
