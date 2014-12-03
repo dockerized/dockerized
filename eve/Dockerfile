@@ -1,4 +1,10 @@
 FROM phusion/baseimage:latest
+MAINTAINER Tony.Shao "xiocode@gmail.com"
+
+# Init
+ENV HOME /root
+RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
+CMD ["/sbin/my_init"]
 
 RUN apt-get update && apt-get install -y wget git curl zip unzip python python-dev python-software-properties software-properties-common
 
@@ -70,6 +76,7 @@ RUN wget -nv https://downloads.gradle.org/distributions/gradle-2.2.1-all.zip && 
 RUN rm -rf android-sdk_r23.0.2-linux.tgz
 RUN rm -rf apache-maven-3.1.1-bin.tar.gz
 RUN rm -rf gradle-1.9-all.zip
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Environment variables
 ENV MAVEN_HOME /usr/local/apache-maven-3.1.1
