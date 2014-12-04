@@ -2,10 +2,10 @@ FROM phusion/baseimage:latest
 MAINTAINER Tony.Shao "xiocode@gmail.com"
 
 # Init
-ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
+RUN
 
-RUN apt-get update && apt-get install -y wget git curl zip unzip python python-dev python-software-properties software-properties-common
+RUN apt-get update && apt-get install -y wget git curl zip unzip python ia32-libs python-dev python-software-properties software-properties-common
 
 # JAVA
 RUN apt-get update
@@ -83,6 +83,8 @@ ENV GRADLE_HOME /usr/local/gradle-2.2
 ENV PATH $PATH:$MAVEN_HOME/bin
 ENV PATH $PATH:$GRADLE_HOME/bin
 
+
+WORKDIR "$JENKINS_HOME"
 
 # for main web interface:
 EXPOSE 8080
