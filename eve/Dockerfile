@@ -3,7 +3,6 @@ MAINTAINER Tony.Shao "xiocode@gmail.com"
 
 # Init
 ENV DEBIAN_FRONTEND noninteractive
-RUN
 
 RUN apt-get update && apt-get install -y wget git curl zip unzip python ia32-libs python-dev python-software-properties software-properties-common
 
