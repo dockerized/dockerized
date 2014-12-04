@@ -4,7 +4,7 @@ MAINTAINER Tony.Shao "xiocode@gmail.com"
 # Init
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get install -y wget git curl zip unzip python ia32-libs python-dev python-software-properties software-properties-common
+RUN apt-get update && apt-get install -y wget git curl zip unzip python lib32z1 lib32ncurses5 lib32bz2-1.0 python-dev python-software-properties software-properties-common
 
 # JAVA
 RUN apt-get update
