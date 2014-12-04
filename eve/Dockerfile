@@ -2,7 +2,6 @@ FROM phusion/baseimage:latest
 MAINTAINER Tony.Shao "xiocode@gmail.com"
 
 # Init
-ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get install -y wget git curl zip unzip python python-dev python-software-properties software-properties-common
