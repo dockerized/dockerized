@@ -3,8 +3,9 @@ MAINTAINER Tony.Shao "xiocode@gmail.com"
 
 # Init
 ENV HOME /root
-RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
-CMD ["/sbin/my_init"]
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get install -y wget git curl zip unzip python python-dev python-software-properties software-properties-common
 
