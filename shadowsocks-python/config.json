@@ -1,7 +1,7 @@
 {
     "server_port":10086,
     "password":"299792458",
-    "method": "rc4-md5",
+    "method": "aes-256-cfb",
     "fast_open": true,
     "workers":2,
     "timeout":600

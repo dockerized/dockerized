@@ -1,0 +1,5 @@
+FROM google/nodejs
+RUN npm install -g anyproxy
+
+CMD []
+ENTRYPOINT ["anyproxy", "--port 10010"]
